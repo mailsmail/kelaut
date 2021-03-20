@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.service.ServiceEditActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_action_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="30dp"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:padding="0dp"
+            android:background="@android:color/transparent"
+            app:icon="@drawable/ic_arrow_back_black_24dp"
+            app:iconTint="@color/black_500" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/btn_back"
+            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black_200"
+            android:textSize="20sp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/service_edit"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/rl_action_header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingTop="10dp">
+
+        <include layout="@layout/service_form" />
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

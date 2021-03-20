@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_base_name">kelaut</string>
+    <string name="app_name">Fisherman</string>
+
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="password_validation">Ulangi Kata Sandi</string>
+    <string name="forgot_password">Lupa Password?</string>
+    <string name="not_registered">Belum punya akun? Daftar disini</string>
+    <string name="login">Masuk</string>
+    <string name="signup">Daftar</string>
+
+    <string name="full_name">Nama Lengkap</string>
+    <string name="user_name">Nama User</string>
+    <string name="phone_number">Nomor Telepon</string>
+    <string name="already_registered">Sudah punya akun? Masuk disini</string>
+
+    <string name="empty_field">Harus diisi, tidak boleh kosong</string>
+    <string name="empty_full_name">Nama lengkap tidak boleh kosong</string>
+    <string name="empty_email">Alamat email tidak boleh kosong</string>
+    <string name="invalid_email">Email yang dimasukkan mungkin salah</string>
+    <string name="invalid_format_email">Format alamat email salah</string>
+    <string name="empty_phone_number">Nomor telepon tidak boleh kosong</string>
+    <string name="invalid_password">Kata sandi yang dimasukkan mungkin salah</string>
+    <string name="empty_password">Kata sandi tidak boleh kosong</string>
+    <string name="short_password">Kata sandi harus lebih dari 8 karakter</string>
+    <string name="not_match_password">Kata sandi harus sama</string>
+
+    <string name="failed_create_user">Gagal membuat user</string>
+    <string name="failed_saving_data">Gagal menyimpan data user</string>
+    <string name="success_registration">Registrasi berhasil</string>
+
+    <string name="failed_login">Gagal masuk. Pastikan email dan password yang dimasukkan benar</string>
+    <string name="success_login">Berhasil masuk</string>
+
+    <string name="menu_service">Layanan</string>
+    <string name="menu_order">Pesanan</string>
+    <string name="menu_news">Berita</string>
+    <string name="menu_guide">Panduan</string>
+    <string name="menu_tips">Tips</string>
+
+    <string name="failed_saving_service">Gagal menyimpan data layanan</string>
+    <string name="success_create_service">Layanan baru berhasil ditambah</string>
+    <string name="success_edit_service">Layanan berhasil diperbaharui</string>
+
+    <string name="services_newest">Baru</string>
+    <string name="services_popular">Populer</string>
+
+    <string name="service_new">Tambah</string>
+    <string name="service_edit">Perbaharui Layanan</string>
+
+    <string name="service_name">Nama Layanan</string>
+    <string name="service_type">Jenis Layanan</string>
+    <string name="service_desc">Deskripsi Layanan</string>
+    <string name="service_additional">Tambahan</string>
+    <string name="service_price">Tarif</string>
+    <string name="service_price_desc">Deskripsi Tarif</string>
+    <string name="service_location">Lokasi</string>
+    <string name="service_location_detail">Detail Lokasi</string>
+    <string name="service_location_district">Kecamatan</string>
+    <string name="service_location_city">Kota</string>
+    <string name="service_location_province">Provinsi</string>
+    <string name="service_schedule">Jadwal Layanan</string>
+    <string name="service_save">Simpan Layanan</string>
+
+    <string name="edit">Ganti</string>
+    <string name="image_alt">Deskripsi Gambar</string>
+    <string name="title">Judul atau Nama Item</string>
+    <string name="description">Deskripsi Item</string>
+    <string name="service_price_format">Rp %1$s</string>
+    <string name="service_location_format">%1$s, %2$s, %3$s</string>
+    <string name="service_operational_count_format">%1$sx beroperasi</string>
+
+    <string name="order">Pesanan</string>
+
+
+</resources>

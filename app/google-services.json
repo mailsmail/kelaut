@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "347849431466",
+    "project_id": "kelaut-19d86",
+    "storage_bucket": "kelaut-19d86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347849431466:android:6ce6d2233740a4bf66f3d3",
+        "android_client_info": {
+          "package_name": "com.kelaut.fisherman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347849431466-9gtfao4a6i3j37evii9uq3k5uah4h8pl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA73brAvrVGwMX6MamCrL05BjD6cW2jvtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347849431466-9gtfao4a6i3j37evii9uq3k5uah4h8pl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347849431466:android:fdb8e2a33611696d66f3d3",
+        "android_client_info": {
+          "package_name": "com.kelaut.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347849431466-9gtfao4a6i3j37evii9uq3k5uah4h8pl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA73brAvrVGwMX6MamCrL05BjD6cW2jvtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347849431466-9gtfao4a6i3j37evii9uq3k5uah4h8pl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
