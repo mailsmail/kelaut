@@ -1,8 +1,10 @@
 package com.kelaut.fisherman.presenter.service
 
+import android.net.Uri
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import com.kelaut.fisherman.contract.service.CommonServiceContract
 import com.kelaut.fisherman.model.Service
 import com.kelaut.fisherman.model.Fisherman
@@ -60,5 +62,26 @@ class ServiceAddPresenter(_view: CommonServiceContract.View) : CommonServiceCont
         Log.d(TAG, "Failed to submit new service.")
     }
 
+    fun uploadImage(imageUri: Uri?, onImageUploaded: (String) -> Unit) {
+        view.showProgressBar()
+        val storageRef = FirebaseStorage.getInstance()
+                .getReference("serviceImage/" + System.currentTimeMillis() + ".jpg")
 
+        storageRef.putFile(imageUri!!)
+                .continueWithTask { task ->
+                    if (!task.isSuccessful) {
+                        throw task.exception!!
+                    }
+                    storageRef.downloadUrl
+                }.addOnCompleteListener { task ->
+                    view.hideProgressBar()
+
+                    if (task.isSuccessful) {
+                        val downloadUri = task.result
+                        onImageUploaded(downloadUri!!.toString())
+                    } else {
+                        view.showToastStatus(Status.ErrUploadImage)
+                    }
+                }
+    }
 }

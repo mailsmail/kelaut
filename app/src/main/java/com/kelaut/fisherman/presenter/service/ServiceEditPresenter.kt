@@ -23,7 +23,6 @@ class ServiceEditPresenter(_view: CommonServiceContract.View) : CommonServiceCon
             view.showProgressBar()
 
             val db = FirebaseFirestore.getInstance()
-
             val ref = db.collection(Constant.SERVICE_COLLECTION).document(service.Id)
 
             ref.update(
@@ -58,12 +57,12 @@ class ServiceEditPresenter(_view: CommonServiceContract.View) : CommonServiceCon
         view.showToastStatus(error)
     }
 
-    fun uploadImage(uriProfileImage: Uri?, onImageUploaded: (String) -> Unit) {
+    fun uploadImage(imageUri: Uri?, onImageUploaded: (String) -> Unit) {
         view.showProgressBar()
         val storageRef = FirebaseStorage.getInstance()
                 .getReference("serviceImage/" + System.currentTimeMillis() + ".jpg")
 
-        storageRef.putFile(uriProfileImage!!)
+        storageRef.putFile(imageUri!!)
                 .continueWithTask { task ->
                     if (!task.isSuccessful) {
                         throw task.exception!!
