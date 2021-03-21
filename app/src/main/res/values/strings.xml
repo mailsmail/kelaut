@@ -34,7 +34,7 @@
     <string name="success_login">Berhasil masuk</string>
 
     <string name="menu_service">Layanan</string>
-    <string name="menu_order">Pesanan</string>
+    <string name="menu_transaction">Transaksi</string>
     <string name="menu_news">Berita</string>
     <string name="menu_guide">Panduan</string>
     <string name="menu_tips">Tips</string>
@@ -71,7 +71,11 @@
     <string name="service_location_format">%1$s, %2$s, %3$s</string>
     <string name="service_operational_count_format">%1$sx beroperasi</string>
 
-    <string name="order">Pesanan</string>
+    <string name="transaction">Transaksi</string>
+
+    <string name="date_format_complete">dd/MM/yyyy HH:mm:ss</string>
+    <string name="transaction_person_count_format">%1$d orang</string>
+    <string name="transaction_price_format">@string/service_price_format</string>
 
 
 </resources>

@@ -7,7 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.kelaut.fisherman.view.order.OrderFragment
+import com.kelaut.fisherman.view.transaction.TransactionFragment
 import com.kelaut.fisherman.R
 import com.kelaut.fisherman.model.Fisherman
 import com.kelaut.fisherman.view.service.ServiceFragment
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_base.*
 class BaseActivity : AppCompatActivity() {
 
     private val serviceFragment = ServiceFragment.newInstance()
-    private val orderFragment = OrderFragment.newInstance()
+    private val transactionFragment = TransactionFragment.newInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +40,9 @@ class BaseActivity : AppCompatActivity() {
                 Log.d("BaseActivity", "navigation_service selected")
                 addFragments(serviceFragment)
             }
-            R.id.navigation_order -> {
-                Log.d("BaseActivity", "navigation_order selected")
-                addFragments(orderFragment)
+            R.id.navigation_transaction -> {
+                Log.d("BaseActivity", "navigation_transaction selected")
+                addFragments(transactionFragment)
             }
         }
     }

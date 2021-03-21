@@ -24,9 +24,12 @@
         <activity android:name=".view.LoginActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".view.BaseActivity" />
+
         <activity android:name=".view.service.ServiceAddActivity" />
         <activity android:name=".view.service.ServiceDetailsActivity" />
         <activity android:name=".view.service.ServiceEditActivity" />
+
+        <activity android:name=".view.transaction.TransactionDetailsActivity" />
     </application>
 
 </manifest>

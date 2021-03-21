@@ -313,12 +313,12 @@
                 android:textColor="@color/white"
                 android:drawablePadding="10dp"
                 app:drawableStartCompat="@drawable/ic_receipt_long_white_24dp"
-                android:text="@string/menu_order" />
+                android:text="@string/menu_transaction" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_order_list"
+                android:id="@+id/rv_transaction_list"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="wrap_content"
                 android:paddingHorizontal="30dp"
                 android:background="@color/grey_200"/>
 

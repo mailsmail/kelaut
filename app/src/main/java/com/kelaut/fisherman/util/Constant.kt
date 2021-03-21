@@ -5,7 +5,9 @@ object Constant {
 
     // Firestore collection name
     const val FISHERMAN_COLLECTION = "fisherman"
+    const val TRANSACTION_COLLECTION = "transaction"
     const val SERVICE_COLLECTION = "service"
+    const val USER_COLLECTION = "user"
 
     // Firestore field name
     // -- Service Collection
@@ -27,6 +29,14 @@ object Constant {
     const val SERVICE_CREATED = "createAt"
     const val SERVICE_UPDATED = "updateAt"
 
+    // -- Transaction COllection
+    const val TRANSACTION_FISHERMAN_ID = "fishermanId"
+
     // Image Chooser
     const val CHOOSE_IMAGE = 101
+
+    // Progress
+    val SUBMITED = "submited"
+    val APPROVED = "approved"
+    val DONE = "done"
 }

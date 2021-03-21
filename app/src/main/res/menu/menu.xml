@@ -7,9 +7,9 @@
         android:title="@string/menu_service" />
 
     <item
-        android:id="@+id/navigation_order"
+        android:id="@+id/navigation_transaction"
         android:icon="@drawable/ic_receipt_long_white_24dp"
-        android:title="@string/menu_order" />
+        android:title="@string/menu_transaction" />
 
     <item
         android:id="@+id/navigation_news"
