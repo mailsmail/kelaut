@@ -20,9 +20,9 @@
             android:id="@+id/iv_service_image"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:src="@drawable/example_service_pic"
+            android:src="@drawable/default_image"
             android:scaleType="fitXY"
-            android:background="@color/blue_500"
+            android:background="@color/grey_500"
             android:contentDescription="Service Image" />
 
         <RelativeLayout
@@ -38,6 +38,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
+                android:lines="1"
+                android:scrollHorizontally="true"
+                android:ellipsize="end"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="18sp"
                 android:layout_alignParentTop="true"

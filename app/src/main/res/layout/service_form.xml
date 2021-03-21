@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/example_service_pic"
+            android:background="@color/grey_500"
+            android:src="@drawable/default_image"
             android:contentDescription="@string/image_alt"/>
 
     </androidx.cardview.widget.CardView>

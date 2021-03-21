@@ -77,7 +77,8 @@
                         android:layout_height="250dp"
                         android:contentDescription="@string/image_alt"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/example_service_pic"/>
+                        android:background="@color/grey_500"
+                        android:src="@drawable/default_image"/>
 
                 </androidx.cardview.widget.CardView>
 

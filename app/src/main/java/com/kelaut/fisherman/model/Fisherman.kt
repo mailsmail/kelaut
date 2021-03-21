@@ -11,7 +11,8 @@ data class Fisherman(
     val fullName: String = "",
     val email: String = "",
     val phoneNumber: String = "",
-    val password: String = ""
+    val password: String = "",
+    val imageUrl: String = ""
 ) {
 
     companion object {

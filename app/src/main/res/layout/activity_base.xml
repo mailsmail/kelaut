@@ -40,10 +40,12 @@
             app:cardCornerRadius="25dp">
 
             <ImageView
+                android:id="@+id/iv_fisherman_profile_pic"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/example_profile_pic" />
+                android:background="@color/grey_500"
+                android:src="@drawable/default_image" />
 
         </androidx.cardview.widget.CardView>
 

@@ -1,15 +1,18 @@
 package com.kelaut.fisherman.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.kelaut.fisherman.view.transaction.TransactionFragment
 import com.kelaut.fisherman.R
 import com.kelaut.fisherman.model.Fisherman
+import com.kelaut.fisherman.view.profile.ProfileActivity
 import com.kelaut.fisherman.view.service.ServiceFragment
 import kotlinx.android.synthetic.main.activity_base.*
 
@@ -31,6 +34,10 @@ class BaseActivity : AppCompatActivity() {
         }
 
         loadFisherman()
+
+        profile_pic_container.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
     }
 
     private fun selectedMenu(menuItem: MenuItem) {
@@ -58,6 +65,11 @@ class BaseActivity : AppCompatActivity() {
         val auth = FirebaseAuth.getInstance()
         Fisherman.fetchFisherman(auth.currentUser?.uid ?: "") { fisherman ->
             tv_fisherman_name.text = fisherman?.fullName
+            if (fisherman?.imageUrl != "") {
+                Glide.with(this)
+                        .load(fisherman?.imageUrl)
+                        .into(iv_fisherman_profile_pic)
+            }
         }
     }
 
