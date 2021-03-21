@@ -57,10 +57,8 @@ class RegisterPresenter(_view: RegisterContract.View) : RegisterContract.Present
 
             val auth = FirebaseAuth.getInstance()
             auth.createUserWithEmailAndPassword(fisherman.email, fisherman.password)
-                .addOnCompleteListener{
+                .addOnSuccessListener{
                     saveFishermanData(auth, fisherman)
-                    // Add this so it will not automatically signed in after registration.
-                    auth.signOut()
                 }.addOnFailureListener{
                     onRegisterFailure(Status.ErrCreatingUser)
                 }
@@ -85,14 +83,18 @@ class RegisterPresenter(_view: RegisterContract.View) : RegisterContract.Present
         val fishermanId = auth.currentUser?.uid
         val db = FirebaseFirestore.getInstance()
 
-        db.collection(Constant.FISHERMAN_COLLECTION)
-            .document(fishermanId ?: "default")
-            .set(fisherman.copy(password = fisherman.password.sha256()))
-            .addOnSuccessListener {
-                onRegisterSuccess()
-            }.addOnFailureListener{
-                onRegisterFailure(Status.ErrSavingData)
-            }
+        if (fishermanId != null) {
+            db.collection(Constant.FISHERMAN_COLLECTION)
+                    .document(fishermanId)
+                    .set(fisherman.copy(password = fisherman.password.sha256()))
+                    .addOnSuccessListener {
+                        onRegisterSuccess()
+                        // Add this so it will not automatically signed in after registration.
+                        auth.signOut()
+                    }.addOnFailureListener {
+                        onRegisterFailure(Status.ErrSavingData)
+                    }
+        }
     }
 
 }
