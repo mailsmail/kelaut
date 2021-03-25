@@ -31,12 +31,13 @@ object Constant {
 
     // -- Transaction COllection
     const val TRANSACTION_FISHERMAN_ID = "fishermanId"
+    const val TRANSACTION_PROGRESS = "progress"
 
     // Image Chooser
     const val CHOOSE_IMAGE = 101
 
     // Progress
-    val SUBMITED = "submited"
-    val APPROVED = "approved"
-    val DONE = "done"
+    val TRANSACTION_SUBMITED = "submited"
+    val TRANSACTION_APPROVED = "approved"
+    val TRANSACTION_DONE = "done"
 }

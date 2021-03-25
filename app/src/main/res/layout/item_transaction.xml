@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/example_profile_pic" />
+                    android:src="@drawable/default_image" />
 
             </androidx.cardview.widget.CardView>
 

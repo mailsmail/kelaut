@@ -17,11 +17,6 @@
         android:title="@string/menu_news" />
 
     <item
-        android:id="@+id/navigation_tips"
-        android:icon="@drawable/ic_checklist_white_24dp"
-        android:title="@string/menu_tips" />
-
-    <item
         android:id="@+id/navigation_guide"
         android:icon="@drawable/ic_help_center_white_24dp"
         android:title="@string/menu_guide" />

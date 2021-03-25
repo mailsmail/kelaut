@@ -25,7 +25,7 @@ data class Service (
         var location: Location = Location(),
 
         var operationalSchedule: String = "",
-        var isAvailable: Boolean = true,
+        var available: Boolean = true,
         var rating: Double = 0.0,
         var operationalCount: Int = 0,
 
@@ -54,6 +54,18 @@ data class Service (
                         }
                     }.addOnFailureListener {
                         Log.d(TAG, "Failed to fetch services with fishermanId ${fishermanId}")
+                    }
+        }
+
+        fun fetchServiceByServiceId(serviceId: String, onServicesFetched: (Service?) -> Unit) {
+            val db = FirebaseFirestore.getInstance()
+            db.collection(Constant.SERVICE_COLLECTION).document(serviceId).get()
+                    .addOnSuccessListener { document ->
+                        if (document != null) {
+                            val service = document.toObject(Service::class.java)
+                            service?.Id = serviceId
+                            onServicesFetched(service)
+                        }
                     }
         }
     }

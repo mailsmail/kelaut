@@ -173,7 +173,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/example_profile_pic" />
+                                android:src="@drawable/default_image" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -268,20 +268,16 @@
 
                 </LinearLayout>
 
+                <Button
+                    android:id="@+id/btn_accept_transaction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Terima Pesanan"
+                    android:background="@drawable/button_rounded"/>
 
             </LinearLayout>
 
-            <!---
-            val useAt: Date = Calendar.getInstance().time,
-            val personCount: Int = 0,
-            val note: String = "",
-
-            var isDone: Boolean = false,
-            var progress: String = Constant.SUBMITED,
-
-            val createAt: Date = Calendar.getInstance().time,
-            val doneAt: Date = Calendar.getInstance().time
-            -->
 
         </androidx.cardview.widget.CardView>
 

@@ -20,6 +20,7 @@ import com.kelaut.fisherman.model.Service
 import com.kelaut.fisherman.presenter.service.ServiceEditPresenter
 import com.kelaut.fisherman.util.Constant
 import com.kelaut.fisherman.util.Status
+import kotlinx.android.synthetic.main.activity_service_edit.*
 import kotlinx.android.synthetic.main.service_form.*
 
 class ServiceEditActivity : AppCompatActivity(), CommonServiceContract.View {
@@ -52,6 +53,11 @@ class ServiceEditActivity : AppCompatActivity(), CommonServiceContract.View {
                     updateService(_service.Id, _service.imageURL)
                 }
             }
+        }
+
+        btn_back.setOnClickListener {
+            setResult(Activity.RESULT_CANCELED, intent)
+            finish()
         }
     }
 
@@ -95,6 +101,7 @@ class ServiceEditActivity : AppCompatActivity(), CommonServiceContract.View {
     }
 
     override fun close() {
+        setResult(Activity.RESULT_OK, intent)
         finish()
     }
 

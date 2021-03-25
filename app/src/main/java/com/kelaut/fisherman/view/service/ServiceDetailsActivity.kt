@@ -1,5 +1,6 @@
 package com.kelaut.fisherman.view.service
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -12,85 +13,111 @@ import com.kelaut.fisherman.model.Service
 import com.kelaut.fisherman.util.Constant
 import kotlinx.android.synthetic.main.activity_service_details.*
 import kotlinx.android.synthetic.main.activity_service_details.iv_service_image
-import kotlinx.android.synthetic.main.service_form.*
+import kotlinx.android.synthetic.main.activity_service_details.tv_service_location
+import kotlinx.android.synthetic.main.activity_service_details.tv_service_name
 
 class ServiceDetailsActivity : AppCompatActivity() {
 
     private val TAG = "ServiceDetailsActivity"
+    private val LAUNCH_EDIT_ACTIVITY = 1
+
+    private val db = FirebaseFirestore.getInstance()
+    private lateinit var service: Service
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_service_details)
 
-        val service = intent.extras?.get("SERVICE") as? Service
-        if (service != null) {
-            bindServiceData(service)
+        val serviceId = intent.extras?.get("SERVICE_ID") as? String
+        if (serviceId != null) {
+            loadServiceData(serviceId)
+        }
+
+        btn_back.setOnClickListener {
+            finish()
         }
 
         btn_edit.setOnClickListener {
             val intent = Intent(this@ServiceDetailsActivity, ServiceEditActivity::class.java)
             intent.putExtra("SERVICE", service)
-            startActivity(intent)
+            startActivityForResult(intent, LAUNCH_EDIT_ACTIVITY)
         }
 
         sw_service_availability.setOnCheckedChangeListener { _, isChecked ->
-            val db = FirebaseFirestore.getInstance()
-            db.collection(Constant.SERVICE_COLLECTION).document(service?.Id ?: "")
-                .update(Constant.SERVICE_AVAILABILITY, isChecked)
-                .addOnSuccessListener {
-                    var msg = ""
-                    if (isChecked) {
-                        msg = "Layanan ${service?.name} berhasil diaktifkan"
-                    } else {
-                        msg = "Layanan ${service?.name} berhasil diberhentikan"
+            db.collection(Constant.SERVICE_COLLECTION).document(service.Id ?: "")
+                    .update(Constant.SERVICE_AVAILABILITY, isChecked)
+                    .addOnSuccessListener {
+                        var msg = ""
+                        if (isChecked) {
+                            msg = "Layanan ${service.name} berhasil diaktifkan"
+                        } else {
+                            msg = "Layanan ${service.name} berhasil diberhentikan"
+                        }
+
+                        val toast: Toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT)
+                        toast.show()
+
+                        Log.d(TAG, "Service availability successfully updated to ${isChecked}")
+                    }.addOnFailureListener {
+                        Log.d(TAG, "Failed to update service availability to ${isChecked}")
                     }
-
-                    val toast: Toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT)
-                    toast.show()
-
-                    Log.d(TAG, "Service availability successfully updated to ${isChecked}")
-                }.addOnFailureListener{
-                    Log.d(TAG, "Failed to update service availability to ${isChecked}")
-                }
         }
-
     }
 
-    private fun bindServiceData(service: Service) {
-        tv_service_name.text = service.name
-        tv_service_desc.text = service.description
-        tv_service_type.text = service.type
 
-        sw_service_availability.isChecked = service.isAvailable
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == LAUNCH_EDIT_ACTIVITY) {
+            if (resultCode == Activity.RESULT_OK) {
+                loadServiceData(service.Id)
+            }
+        }
+    }
+
+    private fun loadServiceData(serviceId: String) {
+        Service.fetchServiceByServiceId(serviceId) { _service ->
+            if (_service != null) {
+                service = _service
+                bindServiceData(_service)
+            }
+        }
+    }
+
+    private fun bindServiceData(_service: Service) {
+        tv_service_name.text = _service.name
+        tv_service_desc.text = _service.description
+        tv_service_type.text = _service.type
+
+        sw_service_availability.isChecked = _service.available
 
         tv_service_price.text = getString(
                 R.string.service_price_format,
-                String.format("%,d", service.price))
-        tv_service_price_desc.text = service.priceDescription
+                String.format("%,d", _service.price))
+        tv_service_price_desc.text = _service.priceDescription
 
         tv_service_location.text = getString(
                 R.string.service_location_format,
-                service.location.district,
-                service.location.city,
-                service.location.province)
-        tv_service_location_details.text = service.location.detail
+                _service.location.district,
+                _service.location.city,
+                _service.location.province)
+        tv_service_location_details.text = _service.location.detail
 
-        tv_service_schedule.text = service.operationalSchedule
-        tv_service_additional.text = service.additionalService
-        tv_service_rating.text = service.rating.toString()
+        tv_service_schedule.text = _service.operationalSchedule
+        tv_service_additional.text = _service.additionalService
+        tv_service_rating.text = _service.rating.toString()
 
-        var opsCountString = service.operationalCount.toString()
-        if (service.operationalCount >= 1000) {
-            val opsCount = service.operationalCount / 1000
+        var opsCountString = _service.operationalCount.toString()
+        if (_service.operationalCount >= 1000) {
+            val opsCount = _service.operationalCount / 1000
             opsCountString = "${opsCount}K"
         }
         tv_service_operational_count.text = getString(
                 R.string.service_operational_count_format,
                 opsCountString)
 
-        if (service.imageURL != "") {
-            Glide.with(this).load(service.imageURL).into(iv_service_image)
+        if (_service.imageURL != "") {
+            Glide.with(this).load(_service.imageURL).into(iv_service_image)
         }
     }
 

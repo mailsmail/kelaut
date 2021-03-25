@@ -8,27 +8,27 @@ import java.io.Serializable
 import java.util.*
 
 data class Transaction (
-    @get:Exclude var Id: String = "",
-    val userId: String = "",
+        @get:Exclude var Id: String = "",
+        val userId: String = "",
 
-    val fishermanId: String = "",
+        val fishermanId: String = "",
 
-    val serviceId: String = "",
-    val serviceName: String = "",
-    val servicePrice: Int = 0,
-    val servicePriceDesc: String = "",
-    val serviceImageUrl: String = "",
-    val serviceLocation: Location = Location(),
+        val serviceId: String = "",
+        val serviceName: String = "",
+        val servicePrice: Int = 0,
+        val servicePriceDesc: String = "",
+        val serviceImageUrl: String = "",
+        val serviceLocation: Location = Location(),
 
-    val useAt: Date = Calendar.getInstance().time,
-    val personCount: Int = 0,
-    val note: String = "",
+        val useAt: Date = Calendar.getInstance().time,
+        val personCount: Int = 0,
+        val note: String = "",
 
-    var isDone: Boolean = false,
-    var progress: String = Constant.SUBMITED,
+        var isDone: Boolean = false,
+        var progress: String = Constant.TRANSACTION_SUBMITED,
 
-    val createAt: Date = Calendar.getInstance().time,
-    val doneAt: Date = Calendar.getInstance().time
+        val createAt: Date = Calendar.getInstance().time,
+        val doneAt: Date = Calendar.getInstance().time
 ) : Serializable {
 
     companion object {

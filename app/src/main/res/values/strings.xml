@@ -73,6 +73,9 @@
     <string name="service_operational_count_format">%1$sx beroperasi</string>
 
     <string name="transaction">Transaksi</string>
+    <string name="transaction_confirmation">Apakah Anda yakin ingin menerima transaksi ini?</string>
+    <string name="transaction_confirmation_accept">Terima</string>
+    <string name="transaction_confirmation_cancel">Batal</string>
 
     <string name="date_format_complete">dd/MM/yyyy HH:mm:ss</string>
     <string name="transaction_person_count_format">%1$d orang</string>

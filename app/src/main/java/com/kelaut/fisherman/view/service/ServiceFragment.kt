@@ -30,14 +30,18 @@ class ServiceFragment : Fragment() {
             startActivity(Intent(context, ServiceAddActivity::class.java))
         }
 
-        loadServices()
-
         val layoutManager = LinearLayoutManager(context)
         recyclerView = view.findViewById(R.id.rv_service_list)
         recyclerView.layoutManager = layoutManager
         recyclerView.setHasFixedSize(true)
 
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadServices()
+        Log.d(TAG, "On Resume is called")
     }
 
     private fun loadServices() {
@@ -54,7 +58,7 @@ class ServiceFragment : Fragment() {
             Log.d(TAG, "Service item clicked: ${service.Id} - ${service.name}")
 
             val intent = Intent(activity, ServiceDetailsActivity::class.java)
-            intent.putExtra("SERVICE", service)
+            intent.putExtra("SERVICE_ID", service.Id)
             activity?.startActivity(intent)
         }
         recyclerView.adapter = adapter

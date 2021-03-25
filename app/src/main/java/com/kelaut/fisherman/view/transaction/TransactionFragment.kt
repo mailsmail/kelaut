@@ -23,14 +23,17 @@ class TransactionFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.fragment_transaction, container, false)
 
-        loadTransactions()
-
         val layoutManager = LinearLayoutManager(context)
         recyclerView = view.findViewById(R.id.rv_transaction_list)
         recyclerView.layoutManager = layoutManager
         recyclerView.setHasFixedSize(true)
 
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadTransactions()
     }
 
     private fun loadTransactions() {
